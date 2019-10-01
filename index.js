@@ -35,29 +35,23 @@ function mapToNegativize(sourceArray) {
 // Reduce
 
  function reduceToTotal(sourceArray, startingPoint = 0) {
-    let finalTotal = startingPoint
-    sourceArray.forEach(item => {
-       finalTotal = finalTotal + item
-    });
-    return finalTotal
+    let total = startingPoint
+    for (let i = 0; i < sourceArray.length; i++ ) {
+      total = total + sourceArray[i]
+    }
+    return total
  }
 
  function reduceToAllTrue(sourceArray) {
-    let allTrue = true 
-    sourceArray.forEach(item => {
-       if (!!item === false) {
-          allTrue = false
-       }
-    })
-    return allTrue
+    for (let i = 0; i < sourceArray.length; i++ ) {
+        if (!sourceArray[i]) return false
+      }
+      return true
  }
 
  function reduceToAnyTrue(sourceArray) {
-    let anyTrue = false
-    sourceArray.forEach(item => {
-       if (!!item === true) {
-          anyTrue = true
-       }
-    })
-    return anyTrue
+    for (let i = 0; i < sourceArray.length; i++ ) {
+        if (sourceArray[i]) return true
+      }
+      return false
  }
